@@ -1,5 +1,5 @@
 # covidnetes
-COVID-19 data stream processor using Solace PubSub+ Event Broker and CircleCI. This application consumes a stream of data on the topic `com/covidtracking/states/current/update/#` (as per the [SolaceLabs/covid19-stream-processors](https://github.com/SolaceLabs/covid19-stream-processors#2-choose-your-topics) github repo) and republishes processed data back to the same broker on `com/covidtracking/states/current/percent/update/{state}`
+COVID-19 data stream processor using [Solace PubSub+ Event Broker](https://www.solace.dev/) and [CircleCI](https://circleci.com/). This application consumes a stream of data on the topic `com/covidtracking/states/current/update/#` (as per the [SolaceLabs/covid19-stream-processors](https://github.com/SolaceLabs/covid19-stream-processors#2-choose-your-topics) github repo) and republishes processed data back to the same broker on `com/covidtracking/states/current/percent/update/{state}`
 
 ## Protocol
 - MQTT
