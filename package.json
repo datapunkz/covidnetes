@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node index"
+    "start": "node index",
+    "subscribe": "node subscriber.js"
   },
   "repository": {
     "type": "git",

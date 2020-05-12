@@ -8,7 +8,10 @@ COVID-19 data stream processor using Solace PubSub+ Event Broker and CircleCI. T
 1. `npm i`
 1. `node start`
 
-Note: to view the processed stream, navigate to the [MQTT COVID Stream Viewer](https://www.marcd.dev/COVIDStreamViewer/mqtt/mqttListener.html) and subscribe to `com/covidtracking/states/current/percent/update/#`
+### View Results
+To view the processed stream, either
+- Navigate to the [MQTT COVID Stream Viewer](https://www.marcd.dev/COVIDStreamViewer/mqtt/mqttListener.html) and subscribe to `com/covidtracking/states/current/percent/update/#`
+- OR in a separate terminal run `npm run subscribe`
 
 ## Test
 1. `npm test`

@@ -6,7 +6,7 @@ var config = {
     password: "covid19"
 }
 
-var topic = "demo/test/#"
+var topic = "com/covidtracking/states/current/percent/update/#"
 
 var client  = mqtt.connect(host, config)
 
