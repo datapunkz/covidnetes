@@ -1,20 +1,6 @@
-// 1. Setup skeleton to connect and receive message on demo topic
-// 1. Connect to Covid stream
-// 1. Best practice for creds mgmt
-// 1. Publish skeleton on demo topic
-// 1. Manipulate JSON with required data
-
-// Notes: 
-// 1. Mention this is pub/sub
-// 1. Start with comments skeleton
-// 1. Skip building another subscriber (redun). Just show https://www.marcd.dev/COVIDStreamViewer/mqtt/mqttListener.html
-// 1. Example tests: 
-//      connections, sample messages
-//      sample messages
-
-
 // require('dotenv').config()
 var mqtt = require("mqtt")
+var Processor = require('./processor')
 
 // Configuration setup for the connection 
 // var host: "process.env.BROKER_HOST",
@@ -46,15 +32,16 @@ client.on('message', (topic, message) => {
     console.log("Message received 👀\nTopic: ", topic, "\nMessage\n", res)
 
     // Modify the stream
-    var newObj = {
-        state: res.state,
-        totalTestResults: res.totalTestResults,
-        death: res.death,
-        negative: res.negative,
-        positive: res.positive,
-        percentPositive: res.positive/res.totalTestResults,
-        percentNegative: res.negative/res.totalTestResults,
-    }
+    // var newObj = {
+    //     state: res.state,
+    //     totalTestResults: res.totalTestResults,
+    //     death: res.death,
+    //     negative: res.negative,
+    //     positive: res.positive,
+    //     percentPositive: res.positive/res.totalTestResults,
+    //     percentNegative: res.negative/res.totalTestResults,
+    // }
+    var newObj = Processor.process(res)
 
     // Publish back a modified stream
     console.log("Publishing to topic 🚀")
