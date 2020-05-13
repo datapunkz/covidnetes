@@ -14,5 +14,7 @@ RUN npm install --only=production
 
 # Bundle app source
 COPY . .
-
+ENV BROKER_HOST=tcp://mr2r9za6fwi0wf.messaging.solace.cloud:1883
+ENV BROKER_USR=covid-public-client
+ENV BROKER_PWD=covid19
 CMD [ "npm", "start" ]
