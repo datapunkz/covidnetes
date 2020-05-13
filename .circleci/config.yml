@@ -41,8 +41,8 @@ jobs:
             gcloud auth activate-service-account --key-file ${HOME}/gcloud_keys
             cd terraform/gke_cluster/
             terraform init
-            terraform plan -var credentials=$HOME/gcloud_keys -out=plan.txt
-            terraform apply plan.txt
+            terraform plan -var credentials=$HOME/gcloud_keys -out=plan.txt -lock=false
+            terraform apply plan.txt -lock=false
   gke_deploy_app:
     docker:
       - image: ariv3ra/terraform-gcp:latest
@@ -61,9 +61,9 @@ jobs:
             gcloud auth activate-service-account --key-file ${HOME}/gcloud_keys
             cd terraform/kubernetes
             terraform init
-            terraform plan -var $DOCKER_IMAGE -out=plan.txt
+            terraform plan -var $DOCKER_IMAGE -out=plan.txt -lock=false
             gcloud container clusters get-credentials $CLUSTER_NAME --zone="us-east1-d"
-            terraform apply plan.txt                       
+            terraform apply plan.txt -lock=false
 workflows:
   build_test_deploy:
     jobs:
