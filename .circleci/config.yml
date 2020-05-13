@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  run_tests:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          name: Install npm deps
+          command: npm install --save
+      - run:
+          name: Run Unit Tests
+          command: npm test
+
+workflows:
+  build_test_deploy:
+    jobs:
+      - run_tests
